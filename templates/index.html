@@ -5,11 +5,30 @@
 
 {% block body %}
 <h2>Welcome to the Task Manager</h2>
-<tbody>
+<div>
+<table>
     <tr>
-        <td>Task Name</td>
-        <td>Task Description</td>
-        <td>Actions</td>
+        <th>Task</th>
+        <th>Date</th>
+        <th>Action</th>
     </tr>
+    {% for task in tasks %}
+        <tr>
+            <td>{{task.content}}</td>
+            <td>{{task.date}}</td>
+            <td>
+                <a href="/delete/{{task.id}}">Delete</a>
+                <br>
+                <a href="/update/{{task.id}}">update</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+
+<form action="/",  method = "POST">
+    <input type="text" name="content" id=" content" placeholder="Enter your task">
+    <input type="submit" value ="Add Task">
+</form>
 {% endblock %}
 
