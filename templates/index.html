@@ -1,14 +1,15 @@
-{%extends base.html%}
-
-{%block head%}
-
+{% extends 'base.html' %}
+{% block head %}
 <h1>Task Manager</h1>
+{% endblock %}
 
-{%end block%}
-
-{%block body%}
-
+{% block body %}
 <h2>Welcome to the Task Manager</h2>
-
-{%end block%}
+<tbody>
+    <tr>
+        <td>Task Name</td>
+        <td>Task Description</td>
+        <td>Actions</td>
+    </tr>
+{% endblock %}
 
