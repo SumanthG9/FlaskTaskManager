@@ -1,74 +1,163 @@
+/* General Body Styles - Focus on basic styling */
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: Arial, sans-serif; /* Reverting to Arial for now, can add Inter if needed later with proper linking */
+    margin: 20px; /* Keep original margin for general spacing */
+    background-color: #f4f4f4; /* Light gray background */
+    color: #333; /* Darker text for readability */
+    line-height: 1.6;
+    box-sizing: border-box; /* Ensure padding/border are included in element's total width and height */
 }
 
-h1, h2 {
-    color: #0056b3;
+/* Headings */
+h1 {
+    color: #0056b3; /* Original blue for main headings */
+    text-align: left; /* Revert to left align */
+    margin-bottom: 10px;
+    font-size: 2rem; /* Adjusted for better balance */
 }
 
+h2 {
+    color: #0056b3; /* Original blue for subheadings */
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+/* Main content division - assuming this is the container for tasks and forms */
 div {
-    background-color: #fff;
+    background-color: #fff; /* White background for content blocks */
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Slightly more rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Softer, larger shadow */
     margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
+/* Table Styles */
 table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: collapse; /* Revert to collapse for simpler borders */
     margin-top: 15px;
+    border-radius: 8px; /* Rounded corners for the table */
+    overflow: hidden; /* Ensures rounded corners apply to content */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08); /* Light shadow for tables */
 }
 
 th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    border: 1px solid #ddd; /* Original border style */
+    padding: 10px; /* Adjusted padding */
     text-align: left;
 }
 
 th {
-    background-color: #007bff;
+    background-color: #007bff; /* Primary blue for table header */
     color: white;
+    font-weight: bold; /* Ensure bold header text */
 }
+
+/* No specific rounded corners for th,td as border-collapse is used */
+/* tr:first-child th:first-child { border-top-left-radius: 8px; }
+tr:first-child th:last-child { border-top-right-radius: 8px; } */
+
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #f8f8f8; /* Very light gray for even rows */
 }
 
+tr:hover {
+    background-color: #eef7ff; /* Subtle highlight on hover */
+}
+
+/* Link Styles (for Update/Delete actions) */
 a {
-    color: #007bff;
+    color: #007bff; /* Matching the original blue theme */
     text-decoration: none;
+    transition: color 0.2s ease; /* Smooth transition for hover */
 }
 
 a:hover {
+    color: #0056b3; /* Darker blue on hover */
     text-decoration: underline;
 }
 
+/* Form Styles */
 form {
     display: flex;
-    gap: 10px;
+    gap: 10px; /* Space between form elements */
     margin-top: 20px;
+    flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
 }
 
 input[type="text"] {
-    flex-grow: 1;
+    flex-grow: 1; /* Allows text input to take available space */
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: 1px solid #ccc; /* Slightly lighter border */
+    border-radius: 4px; /* Standard rounded corners */
+    font-size: 1rem;
+    box-sizing: border-box;
+    min-width: 180px; /* Minimum width before wrapping */
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff; /* Highlight on focus */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Soft blue glow */
 }
 
 input[type="submit"] {
     padding: 10px 15px;
-    background-color: #28a745;
+    background-color: #28a745; /* Green for submit/add */
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease; /* Smooth transitions */
 }
 
 input[type="submit"]:hover {
-    background-color: #218838;
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-1px); /* Slight lift */
 }
+
+input[type="submit"]:active {
+    transform: translateY(0); /* Press effect */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    body {
+        margin: 10px; /* Reduce overall margin on smaller screens */
+    }
+
+    div {
+        padding: 15px; /* Reduce padding in content blocks */
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    form {
+        flex-direction: column; /* Stack form elements vertically */
+        gap: 10px;
+    }
+
+    input[type="text"],
+    input[type="submit"] {
+        width: 100%; /* Full width for form elements */
+    }
+
+    /* Basic table responsive adjustments for very small screens if needed,
+       though the default collapse should work reasonably well.
+       For more advanced responsive tables (like stacking cells),
+       you'd need data-attributes in HTML as discussed before.
+    */
+
+}
+
